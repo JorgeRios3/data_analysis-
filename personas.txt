@@ -1,0 +1,3 @@
+nombre,apellido,edad
+jorge,rios,29
+jair,rios,22
