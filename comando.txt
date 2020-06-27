@@ -1,0 +1,28 @@
+# para instalar paquetes
+pip install redis
+
+#para desinstalar paquetes
+pip uninstall  redis
+
+#activar ambiente dentro de la carpeta del ambiente creado
+source bin/active || . bin/active
+
+#checar cual usamos virtualenv, venv
+
+#crear ambiente virtual linux
+virtualenv -p "ruta del python ejemplo python3" mi_ambiente
+
+#cear ambiente windows
+python3 -m venv mi_ambiente
+#entrar en el directorio del ambiente  /ambiente/scripts 
+#y ejecutar 
+activate
+
+#checar paquetes instalados en mi python
+pip freeze
+
+
+
+
+
+
