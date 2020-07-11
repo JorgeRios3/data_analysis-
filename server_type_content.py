@@ -17,13 +17,15 @@
 #[{'nombre': 'carlos'}]
 #jorge = list(filter(lambda x: x["nombre"]=="jorge", usuarios))
 
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response, render_template
 from flask_accept import accept
 import json
-from flask import render_template
 import csv
+import os
 
-app = Flask(__name__, template_folder='.')
+template_dir = os.getcwd()
+
+app = Flask(__name__, template_folder=template_dir)
 
 personas = [{'nombre': 'Alice', 'edad': 1986},
           {'nombre': 'Bob', 'edad': 1985}]
@@ -31,7 +33,9 @@ personas = [{'nombre': 'Alice', 'edad': 1986},
 @app.route('/')
 @accept('text/html')
 def hello_world():
-    return "hola"
+    nombre="jorge"
+    return render_template("index.html", personas=personas)
+
 
 @hello_world.support('application/json')
 def hello_world_json():
@@ -49,15 +53,16 @@ def otro_json():
 @app.route("/usuarios")
 @accept("application/json")
 def usuarios():
-    return jsonify(personas)
+    return jsonify(usuarios = personas)
 
 @app.route("/usuario", methods=['POST', "PUT", "DELETE"]) #delete
 def create_user():
     if request.method == "POST":
         nombre = request.form.get('nombre')
         edad = request.form.get("edad")
+        print("edad ", edad)
         personas.append({'nombre': nombre, 'edad':edad})
-        return jsonify({'nombre': nombre, 'edad':edad})
+        return jsonify(personas)
     if request.method == "PUT":
         persona1 = {}
         nombre = request.form.get('nombre')

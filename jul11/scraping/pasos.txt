@@ -1,0 +1,31 @@
+instalar scrapy
+pip install scrapy
+
+crear proyecto
+scrapy startproject tutorial
+
+iniciar shell
+scrapy shell 'http://quotes.toscrape.com/page/1/'
+
+
+ejecutar sin  argumento
+scrapy crawl busqueda
+
+ejecutar con argumento
+scrapy crawl busqueda -a categoria=humor
+
+
+selenium
+pip install selenium
+
+
+guardar informacion en json
+scrapy crawl busqueda -o quotes.json
+
+ejecutar spyder sin tener que crear un proyecto
+scrapy runspider <spider_file.py>
+
+
+ejecutar jupyter
+jupyter notebook
+

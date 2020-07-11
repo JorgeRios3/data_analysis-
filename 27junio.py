@@ -1,6 +1,8 @@
 import csv
 import json
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 #tamañano archivo
@@ -15,6 +17,14 @@ import numpy as np
 #for _file in os.listdir('.'):
 #...   print("{:.<35}{:5}".format(_file, os.path.getsize(_file)))
 
+
+
+#pandas
+#content = pd.read_csv('vinos.csv')
+ts = pd.Series(np.random.randn(1000),index=pd.date_range('1/1/2000', periods=1000))
+print(type(ts))
+ts = ts.cumsum()
+print(ts)
 
 
 

@@ -1,0 +1,3 @@
+instalar beautifult soup
+
+pip install beautifulsoup4
